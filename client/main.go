@@ -31,7 +31,7 @@ func main() {
 			fmt.Println("Send failed! Err:", err)
 			return
 		}
-		// Receive
+		//Receive
 		var buffer [1024]byte
 		length, err := connection.Read(buffer[:])
 		if err != nil {
