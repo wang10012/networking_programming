@@ -6,17 +6,18 @@ import (
 	"net"
 )
 
+// process
 func process(conn net.Conn) {
 	defer conn.Close()
 	for {
 		reader := bufio.NewReader(conn)
 		var buffer [128]byte
-		len, err := reader.Read(buffer[:]) //Read(slice)
+		length, err := reader.Read(buffer[:]) //Read(slice)
 		if err != nil {
 			fmt.Println("read failed! Err:", err)
 			break
 		}
-		recv := string(buffer[:len])
+		recv := string(buffer[:length])
 		fmt.Println("Received Data From Client:", recv)
 		conn.Write([]byte("Sucess!"))
 	}

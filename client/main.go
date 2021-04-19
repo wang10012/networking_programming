@@ -33,11 +33,11 @@ func main() {
 		}
 		// Receive
 		var buffer [1024]byte
-		len, err := connection.Read(buffer[:])
+		length, err := connection.Read(buffer[:])
 		if err != nil {
 			fmt.Println("Recieve failed! Err:", err)
 			return
 		}
-		fmt.Println("Received Data From Server:",string(buffer[:len]))
+		fmt.Println("Received Data From Server:", string(buffer[:length]))
 	}
 }
